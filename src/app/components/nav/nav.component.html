@@ -1,0 +1,70 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <!-- Brand -->
+  <a class="navbar-brand" href="#">Realforce.ch </a>
+
+  <!-- Links -->
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="navbar-brand" href="#">
+        <img src="assets/images.png" alt="logo" style="width: 2rem; height:2rem;">
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" (click)="onGetSelectedProducts()">Movies</a>
+    </li>
+
+
+    <!-- Dropdown -->
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+        Type
+      </a>
+      <div class="dropdown-menu">
+        <form class="form-inline">
+          <ul>
+            <li>
+              <button class="dropdown-item" class="btn btn-outline" (click)="myMovie()">movie</button>
+            </li>
+            <li>
+              <button class="dropdown-item" class="btn btn-outline" (click)="mySeries()">series</button>
+            </li>
+          </ul>
+
+        </form>
+      </div>
+    </li>
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+        Year
+      </a>
+      <div class="dropdown-menu">
+        <form class="form-inline">
+          <ul>
+            <li>
+              <button class="dropdown-item" class="btn btn-outline" type="submit"  (click)="onItemSelector(2018)">2018</button>
+            </li>
+            <li>
+              <button class="dropdown-item" class="btn btn-outline" type="submit" (click)="onItemSelector(2017)">2017</button>
+            </li>
+            <li>
+              <button class="dropdown-item" class="btn btn-outline" type="submit" (click)="onItemSelector(2016)">2016</button>
+            </li>
+            <li>
+              <button class="dropdown-item" class="btn btn-outline" type="submit" (click)="onItemSelector(2015)">2015</button>
+            </li>
+          </ul>
+
+        </form>
+      </div>
+    </li>
+  </ul>
+  <div class="spacer"></div>
+  <nav class="navbar navbar-dark bg-dark">
+    <form class="form-inline" #f="ngForm" (ngSubmit)="onSearch(f.value)">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" ngModel name="keyword">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </nav>
+</nav>
+<app-movie></app-movie>

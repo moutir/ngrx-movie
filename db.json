@@ -1,0 +1,32 @@
+{
+  "movies": [
+    {
+      "id": 1,
+      "name": "rambo",
+      "type": "movie",
+      "year": 2017,
+      "selected": true
+    },
+    {
+      "id": 2,
+      "name": "casa",
+      "type": "series",
+      "year": 2018,
+      "selected": true
+    },
+    {
+      "id": 3,
+      "name": "elite",
+      "type": "series",
+      "year": 2016,
+      "selected": false
+    },
+    {
+      "id": 4,
+      "name": "elite",
+      "type": "series",
+      "year": 2016,
+      "selected": false
+    }
+  ]
+}

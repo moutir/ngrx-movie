@@ -1,0 +1,60 @@
+<div class="card">
+  <h5 class="card-header">Search Result</h5>
+  <div class="card-body">
+    <div class="p-4">
+
+      <ng-container *ngIf="moviesState$ | async as state" [ngSwitch]="state.dataState">
+        <ng-container *ngSwitchCase="MoviesStateEnum.INITIAL">
+          <div class="p-2"> Initial State</div>
+        </ng-container>
+        <ng-container *ngSwitchCase="MoviesStateEnum.LOADING">
+          <div class="p-2"> Loading...</div>
+        </ng-container>
+        <ng-container *ngSwitchCase="MoviesStateEnum.ERROR">
+          <div class="p-2 text-danger"> {{state.errorMessage |json}}</div>
+        </ng-container>
+
+
+        <ng-container *ngSwitchCase="MoviesStateEnum.LOADED" class="d-inline p-2 bg-primary ">
+
+          <div class="container" *ngIf="state">
+
+            <div class="row " *ngFor="let movie of state.movies" style="width: max-content;">
+              <div class="card" style="width: 18rem;">
+                <div class="col-sm-5 col-md-6" class="media">
+
+                  <img class="mr-3" src="assets/images.png" alt="logo" style="width: 5rem; height:5rem;">
+                  <div class="media-body">
+                    <h5 class="mt-0 mb-1">{{movie.name}}</h5>
+                    {{movie.type}} / {{movie.year}}
+                    <div style="margin-top:10px;">
+                      <button class="btn btn-smbtn btn btn-warning" > 
+                        <span><i class="fa fa-plus" aria-hidden="true"></i>IMDb</span>
+                      </button>
+                      <button [ngClass]="movie.selected? 'btn-warning':'btn-success'" class="btn btn-smbtn btn "
+                        style="margin-left:10px;" (click)="onSelect(movie)">
+                        <span *ngIf="movie.selected">LISTED</span>
+                        <span *ngIf="!movie.selected"><i class="fa fa-plus" aria-hidden="true"></i>ADD</span>
+                      </button>
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+
+        </ng-container>
+
+
+      </ng-container>
+
+    </div>
+
+  </div>
+
+
+
+</div>
